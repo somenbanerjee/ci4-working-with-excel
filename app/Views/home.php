@@ -45,10 +45,10 @@
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Dashboard</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">
+                        <a href="download/excel" class="btn btn-sm btn-outline-secondary">
                             <span data-feather="download"></span>
                             Download as Excel
-                        </button>
+                        </a>
                     </div>
                 </div>
 
@@ -58,20 +58,30 @@
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
-                            <th scope="col">employees</th>
+                            <th scope="col">Designation</th>
                             <th scope="col">Experience</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        for ($i = 1; $i <= 10; $i++) {
+                        if (count($employees) > 0) {
+                            $slNo = 1;
+                            foreach ($employees as $employee) {
                         ?>
+                                <tr>
+                                    <th scope="row"><?= $slNo; ?></th>
+                                    <td><?= $employee['name'] ?></td>
+                                    <td><?= $employee['email'] ?></td>
+                                    <td><?= $employee['designation'] ?></td>
+                                    <td><?= $employee['experience'] ?></td>
+                                </tr>
+                            <?php
+                                $slNo++;
+                            }
+                        } else {
+                            ?>
                             <tr>
-                                <th scope="row"><?= $i; ?></th>
-                                <td>Mark Otto</td>
-                                <td>mark.otto@gmail.com</td>
-                                <td>Developer</td>
-                                <td><?= rand(0, 12) ?> Year</td>
+                                <td colspan="5" class="text-center">No data found</td>
                             </tr>
                         <?php
                         }
