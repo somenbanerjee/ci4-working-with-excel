@@ -58,7 +58,7 @@
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Job profile</th>
+                            <th scope="col">employees</th>
                             <th scope="col">Experience</th>
                         </tr>
                     </thead>
