@@ -12,7 +12,7 @@
         </div>
     </div>
     <div class="alert alert-info" role="alert">
-        The excel must have only 4 columns -
+        Note : The excel should have 4 columns only-
         name,
         email,
         designation,
