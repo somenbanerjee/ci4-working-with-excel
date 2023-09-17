@@ -7,3 +7,6 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('download/(:alpha)', 'Home::download');
+
+$routes->get('upload/', 'UploadController::index');
+$routes->post('upload/', 'UploadController::upload');

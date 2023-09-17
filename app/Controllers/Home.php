@@ -16,6 +16,7 @@ class Home extends BaseController
         return view("home", $data);
     }
 
+    
     public function download($type = 'excel')
     {
         $employeeModel = new EmployeeModel();
