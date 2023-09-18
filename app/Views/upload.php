@@ -11,8 +11,45 @@
             </a>
         </div>
     </div>
-    <div class="alert alert-info" role="alert">
-        Note : The excel should have 4 columns only-
+
+    <?php
+    if (session()->getFlashdata('error') !== NULL) {
+        if (is_array(session()->getFlashdata('error'))) {
+            foreach (session()->getFlashdata('error') as $error) {
+    ?>
+                <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+                    <li><?= esc($error) ?></li>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+        <?php }
+        } ?>
+        <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+            <?= session()->getFlashdata('error') ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php }
+
+    if (session()->getFlashdata('success') !== NULL) {
+    ?>
+        <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+            <?= session()->getFlashdata('success') ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php
+    }
+    ?>
+
+    <form class="row g-3" action="upload" method="post" enctype='multipart/form-data'>
+        <div class="col-md-6">
+            <label for="excelFile" class="form-label">Excel File</label>
+            <input class="form-control" type="file" name="excelFile">
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </div>
+    </form>
+    <div class="alert alert-info mt-4" role="alert">
+        Note : The excel file should have 4 columns only-
         name,
         email,
         designation,
@@ -20,16 +57,6 @@
 
         Respectively.
     </div>
-    <form class="row g-3" action="upload" method="post" enctype='multipart/form-data'>
-        <div class="col-md-6">
-            <label for="uploadFile" class="form-label">Excel File</label>
-            <input class="form-control" type="file" name="uploadFile">
-        </div>
-        <div class="col-12">
-            <button type="submit" class="btn btn-primary">Upload</button>
-        </div>
-    </form>
-
 </main>
 
 <?= $this->endSection(); ?>

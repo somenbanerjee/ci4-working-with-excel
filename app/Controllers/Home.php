@@ -12,11 +12,11 @@ class Home extends BaseController
     public function index(): string
     {
         $employeeModel = new EmployeeModel();
-        $data['employees'] = $employeeModel->findAll();
+        $data['employees'] = $employeeModel->orderBy('id', 'DESC')->findAll();
         return view("home", $data);
     }
 
-    
+
     public function download($type = 'excel')
     {
         $employeeModel = new EmployeeModel();
