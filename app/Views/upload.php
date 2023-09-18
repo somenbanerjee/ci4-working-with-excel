@@ -49,13 +49,13 @@
         </div>
     </form>
     <div class="alert alert-info mt-4" role="alert">
-        Note : The excel file should have 4 columns only-
-        name,
-        email,
-        designation,
-        experience
+        <strong>Note</strong> : The excel file should have 4 columns only-
+        <strong>name</strong>,
+        <strong>email</strong>,
+        <strong>designation</strong>,
+        <strong>experience</strong>
 
-        Respectively.
+        Respectively and <strong>email</strong> filed should be <strong>unique</strong> else the application will skip that row.
     </div>
 </main>
 

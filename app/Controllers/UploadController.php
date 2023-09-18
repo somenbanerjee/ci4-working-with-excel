@@ -59,7 +59,7 @@ class UploadController extends BaseController
 
             if (!empty($data)) {
                 $employeeModel->insertBatch($data);
-                $this->session->setFlashdata('success', 'Data successfully inserted.');
+                $this->session->setFlashdata('success', count($data) . ' Data successfully inserted.');
             } else {
                 $this->session->setFlashdata('error', 'Excel sheet is empty or all data are duplicate.');
             }
